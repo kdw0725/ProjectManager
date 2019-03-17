@@ -10,7 +10,7 @@
 <body>
 
 
-<table>
+<table border="1px">
 		<tr>
 			<th>NO</th>
 			<th style="text-align: center">제목</th>
@@ -29,10 +29,15 @@
 		</c:forEach>
 		
 	</table>
-
-
-
-
+	
+	<button onclick="boardInsert()">글쓰기</button>
 
 </body>
+
+<script>
+function boardInsert(){
+	location.href="/ProjectManager/boardInsert"
+}
+
+</script>
 </html>

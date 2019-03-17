@@ -6,5 +6,6 @@ import com.skhu.ProjectManager.VO.boardVO;
 
 public interface boardService {
 	public List<boardVO> boardList() throws Exception;
+	public int insertBoard(boardVO VO);
 
 }

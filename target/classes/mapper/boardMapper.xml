@@ -14,8 +14,39 @@
         FROM 
                             BOARD_LIST,
                             (SELECT @rownum:=0) r
-        WHERE               BOARD_NO > 0
-        AND            		BOARD_DELFLAG = 'N'
+        WHERE               
+        					BOARD_NO > 0
+        AND            		
+        					BOARD_DELFLAG = 'N'
+        ORDER BY			
+        
+        					NO DESC
+       
 	</select>
+	
+	<select id="getBoard" parameterType="int" resultType="VO">
+		SELECT 
+	                        BOARD_TITLE,
+	                        BOARD_NO,
+	                        BOARD_CONTENT,
+	                        DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_DATE,
+	                        BOARD_WRITER
+   		FROM 				
+   							BOARD_LIST
+    	WHERE 
+							BOARD_NO=#{board_no}
+	</select>
+	
+	<insert id="insertBoard" parameterType="VO">
+		INSERT INTO
+						BOARD_LIST(
+                        BOARD_WRITER, 
+                        BOARD_TITLE, 
+                        BOARD_CONTENT)
+		VALUES
+						(#{board_writer},
+						#{board_title},
+						#{board_content})
+	</insert>
 
 </mapper>
