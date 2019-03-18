@@ -24,19 +24,6 @@
        
 	</select>
 	
-	<select id="getBoard" parameterType="int" resultType="VO">
-		SELECT 
-	                        BOARD_TITLE,
-	                        BOARD_NO,
-	                        BOARD_CONTENT,
-	                        DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_DATE,
-	                        BOARD_WRITER
-   		FROM 				
-   							BOARD_LIST
-    	WHERE 
-							BOARD_NO=#{board_no}
-	</select>
-	
 	<insert id="insertBoard" parameterType="VO">
 		INSERT INTO
 						BOARD_LIST(
@@ -48,5 +35,17 @@
 						#{board_title},
 						#{board_content})
 	</insert>
-
+	
+	<select id="getBoardDetail" parameterType="int" resultType="VO">
+		SELECT 
+	                        BOARD_TITLE,
+	                        BOARD_NO,
+	                        BOARD_CONTENT,
+	                        DATE_FORMAT(BOARD_INSERTDATE, '%Y-%m-%d') AS BOARD_INSERTDATE,
+	                        BOARD_WRITER
+   		FROM 				
+   							BOARD_LIST
+    	WHERE 
+							BOARD_NO=#{board_no}
+	</select>
 </mapper>

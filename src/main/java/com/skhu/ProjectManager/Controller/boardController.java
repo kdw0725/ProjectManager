@@ -42,17 +42,10 @@ public class boardController {
 		model.addAttribute("list", list);
 		return "/board/boardList";
 		
+	
+		
 	}
-//	@RequestMapping(value= "/boardDetail", method = RequestMethod.GET)
-//	public String boardDetail(
-//			Model model,
-//			boardVO VO,
-//			HttpServletRequest req)throws Exception{
-//		String no = req.getParameter("board_no");
-//		boardVO dto = service.getBoard(Integer.parseInt(no));
-//		model.addAttribute("dto",dto);
-//		return "/board/boardDetail";
-//	}
+
 	@RequestMapping(value="/boardInsert", method = RequestMethod.GET)
 	public String boardInsert() {
 		return "/board/boardInsert";
@@ -67,10 +60,17 @@ public class boardController {
 		vo.setBoard_title(board_title);
 		vo.setBoard_content(board_content);
 		service.insertBoard(vo);
-//		System.out.println(board_writer);
-//		System.out.println(board_title);
-//		System.out.println(board_content);
+
 		return "redirect:/boardList";
+	}
+	
+	@RequestMapping(value="/boardDetail", method = RequestMethod.GET)
+	public String boardDetail(Model model, HttpServletRequest req) {
+		String no = req.getParameter("board_no");
+		boardVO VO = service.getBoardDetail(Integer.parseInt(no));
+		model.addAttribute("VO",VO);
+		System.out.println(VO.getBoard_insertdate());
+		return "/board/boardDetail";
 	}
 
 	

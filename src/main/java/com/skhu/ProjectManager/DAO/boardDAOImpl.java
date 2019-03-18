@@ -27,6 +27,11 @@ public class boardDAOImpl implements boardDAO{
 		return sqlSession.insert(namespace+".insertBoard", VO);
 	}
 
+	@Override
+	public boardVO getBoardDetail(int board_no) {
+		return sqlSession.selectOne(namespace+".getBoardDetail",board_no);
+	}
+
 	
 
 	

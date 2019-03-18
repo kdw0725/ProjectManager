@@ -7,5 +7,5 @@ import com.skhu.ProjectManager.VO.boardVO;
 public interface boardDAO {
 	public List<boardVO> boardList() throws Exception;
 	public int insertBoard(boardVO VO);
-
+	public boardVO getBoardDetail(int board_no);
 }
