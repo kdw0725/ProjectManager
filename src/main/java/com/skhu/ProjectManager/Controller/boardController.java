@@ -79,6 +79,14 @@ public class boardController {
 		model.addAttribute("num",num);
 		return "redirect:/boardList";
 	}
+	
+	@RequestMapping(value="/boardUpdate", method = RequestMethod.GET)
+	public String updateBoard(Model model, HttpServletRequest req) {
+		String board_title = req.getParameter("board_title");
+		String board_writer = req.getParameter("board_writer");
+		String board_content = req.getParameter("board_content");
+		return null;
+	}
 
 	
 }

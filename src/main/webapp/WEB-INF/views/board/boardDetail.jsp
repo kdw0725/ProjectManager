@@ -37,5 +37,6 @@ function boardList(){
 function boardDelete(board_no){
 	location.href = "/ProjectManager/boardDelete?board_no="+board_no;
 }
+function boarD_
 </script>
 </html>

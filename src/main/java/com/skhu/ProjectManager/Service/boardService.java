@@ -9,5 +9,6 @@ public interface boardService {
 	public int insertBoard(boardVO VO);
 	public boardVO getBoardDetail(int board_no);
 	public int delBoard(int board_no);
+	public int updateBoard(boardVO VO);
 
 }
