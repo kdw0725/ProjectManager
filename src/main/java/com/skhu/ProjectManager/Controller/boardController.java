@@ -69,8 +69,15 @@ public class boardController {
 		String no = req.getParameter("board_no");
 		boardVO VO = service.getBoardDetail(Integer.parseInt(no));
 		model.addAttribute("VO",VO);
-		System.out.println(VO.getBoard_insertdate());
 		return "/board/boardDetail";
+	}
+	
+	@RequestMapping(value="/boardDelete", method = RequestMethod.GET)
+	public String boardDelete(Model model, HttpServletRequest req) {
+		String no = req.getParameter("board_no");
+		int num = service.delBoard(Integer.parseInt(no));
+		model.addAttribute("num",num);
+		return "redirect:/boardList";
 	}
 
 	

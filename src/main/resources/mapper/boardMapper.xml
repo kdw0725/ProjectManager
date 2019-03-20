@@ -48,4 +48,11 @@
     	WHERE 
 							BOARD_NO=#{board_no}
 	</select>
+	<delete id="delBoard" parameterType="int">
+		DELETE
+		FROM
+							BOARD_LIST
+		WHERE
+							BOARD_NO = #{board_no};
+	</delete>
 </mapper>

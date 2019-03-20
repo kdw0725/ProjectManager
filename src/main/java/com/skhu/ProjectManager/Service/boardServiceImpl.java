@@ -30,4 +30,9 @@ public class boardServiceImpl implements boardService{
 		return dao.getBoardDetail(board_no);
 	}
 
+	@Override
+	public int delBoard(int board_no) {
+		return dao.delBoard(board_no);
+	}
+
 }
