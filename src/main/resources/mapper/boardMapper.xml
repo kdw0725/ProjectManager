@@ -60,11 +60,11 @@
 	<update id="updateBoard" parameterType="VO">
 		UPDATE
 							BOARD_LIST
-	SET
+		SET
 							BOARD_TITLE=#{board_title},
 	                        BOARD_CONTENT=#{board_content},
-	                        BOARD_WRITER=#{board_writer}"
-	WHERE
+	                        BOARD_WRITER=#{board_writer}
+		WHERE
 	                        BOARD_NO = #{board_no}
 	</update>
 	

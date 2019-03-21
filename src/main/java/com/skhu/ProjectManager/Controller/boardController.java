@@ -81,11 +81,23 @@ public class boardController {
 	}
 	
 	@RequestMapping(value="/boardUpdate", method = RequestMethod.GET)
-	public String updateBoard(Model model, HttpServletRequest req) {
-		String board_title = req.getParameter("board_title");
-		String board_writer = req.getParameter("board_writer");
-		String board_content = req.getParameter("board_content");
-		return null;
+	public String updateBoard(Model model, HttpServletRequest req, boardVO VO) {
+		String no = req.getParameter("board_no");
+		VO = service.getBoardDetail(Integer.parseInt(no));
+		model.addAttribute("VO",VO);
+		return "/board/boardUpdate";
+	}
+	
+	@RequestMapping(value="/boardUpdatePage", method = RequestMethod.GET)
+	public String boardUpdatePage(Model model, boardVO VO,
+			@RequestParam("board_title") String board_title,
+			@RequestParam("board_writer") String board_writer,
+			@RequestParam("board_content") String board_content) {		
+		VO.setBoard_title(board_title); 
+		VO.setBoard_writer(board_writer);
+		VO.setBoard_content(board_content);
+		service.updateBoard(VO);
+		return "redirect:/boardList";
 	}
 
 	
