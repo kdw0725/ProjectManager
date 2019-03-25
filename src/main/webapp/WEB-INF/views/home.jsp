@@ -6,10 +6,11 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!  	
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
 <a href="/ProjectManager/boardList">dddd</a>
+<a href="/ProjectManager/signIn">signIn</a>
 </body>
 </html>

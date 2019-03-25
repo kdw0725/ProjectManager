@@ -3,7 +3,7 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.skhu.ProjectManager.boardMapper"><!-- 이거 수정해줘야된다 동욱아 -->
-	<select id='boardList' resultType="VO">
+	<select id='boardList' resultType="boardVO">
 		SELECT
                             @rownum:=@rownum+1 No,
                             BOARD_NO,
@@ -24,7 +24,7 @@
        
 	</select>
 	
-	<insert id="insertBoard" parameterType="VO">
+	<insert id="insertBoard" parameterType="boardVO">
 		INSERT INTO
 						BOARD_LIST(
                         BOARD_WRITER, 
@@ -36,7 +36,7 @@
 						#{board_content})
 	</insert>
 	
-	<select id="getBoardDetail" parameterType="int" resultType="VO">
+	<select id="getBoardDetail" parameterType="int" resultType="boardVO">
 		SELECT 
 	                        BOARD_TITLE,
 	                        BOARD_NO,
@@ -57,7 +57,7 @@
 							BOARD_NO = #{board_no}
 	</delete>
 	
-	<update id="updateBoard" parameterType="VO">
+	<update id="updateBoard" parameterType="boardVO">
 		UPDATE
 							BOARD_LIST
 		SET

@@ -3,6 +3,23 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.skhu.ProjectManager.memberMapper">
-
+	<insert id="insertMember" parameterType="memberVO">
+		INSERT 
+		INTO 
+							MEMBER(
+							MEMBER_NAME, 
+							MEMBER_ID, 
+							MEMBER_PW, 
+							MEMBER_EMAIL, 
+							MEMBER_PNUM) 
+		VALUES 				
+							(
+							#{member_name},
+							#{member_id},
+							#{member_pw},
+							#{member_email},
+							#{member_pnum}
+							)
+	</insert>
 </mapper>
 	
