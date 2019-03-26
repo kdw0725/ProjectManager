@@ -32,12 +32,6 @@ public class memberController {
 			@RequestParam Map<String, String> param,
 			memberVO VO
 			) {
-//		System.out.println(param.get("member_name"));
-//		System.out.println(param.get("member_id"));
-//		System.out.println(param.get("member_pw"));
-//		System.out.println(param.get("member_email"));
-//		System.out.println(param.get("member_pnum"));
-
 		VO.setMember_name(param.get("member_name"));
 		VO.setMember_id(param.get("member_id"));
 		VO.setMember_pw(param.get("member_pw"));
