@@ -2,6 +2,7 @@ package com.skhu.ProjectManager.Controller;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -53,12 +54,11 @@ public class boardController {
 	
 	@RequestMapping(value="/boardInsertPage", method = RequestMethod.GET)
 	public String boardInsertDO(boardVO vo,
-			@RequestParam("board_writer") String board_writer,
-			@RequestParam("board_title") String board_title,
-			@RequestParam("board_content") String board_content) {
-		vo.setBoard_writer(board_writer);
-		vo.setBoard_title(board_title);
-		vo.setBoard_content(board_content);
+			@RequestParam Map<String, String> param
+			) {
+		vo.setBoard_writer(param.get("board_writer"));
+		vo.setBoard_title(param.get("board_title"));
+		vo.setBoard_content(param.get("board_content"));
 		service.insertBoard(vo);
 
 		return "redirect:/boardList";
@@ -90,12 +90,11 @@ public class boardController {
 	
 	@RequestMapping(value="/boardUpdatePage", method = RequestMethod.GET)
 	public String boardUpdatePage(Model model, boardVO VO,
-			@RequestParam("board_title") String board_title,
-			@RequestParam("board_writer") String board_writer,
-			@RequestParam("board_content") String board_content) {		
-		VO.setBoard_title(board_title); 
-		VO.setBoard_writer(board_writer);
-		VO.setBoard_content(board_content);
+			@RequestParam Map<String, String> param
+			) {		
+		VO.setBoard_title(param.get("board_title")); 
+		VO.setBoard_writer(param.get("board_writer"));
+		VO.setBoard_content(param.get("board_content"));
 		service.updateBoard(VO);
 		return "redirect:/boardList";
 	}
